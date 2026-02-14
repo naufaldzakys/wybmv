@@ -1,13 +1,17 @@
 var w = (c.width = window.innerWidth),
-  h = (c.height = window.innerHeight),
-  ctx = c.getContext("2d"),
-  hw = w / 2, 
-  hh = h / 2,
-  opts = {
-    strings: ["HAPPY", "VALENTINE", "DAY"],
-    charSize: 120,
-    charSpacing: 120,
-    lineHeight: 150,
+    h = (c.height = window.innerHeight),
+    ctx = c.getContext("2d"),
+    hw = w / 2,
+    hh = h / 2;
+
+// 🔥 RESPONSIVE SIZE
+var baseSize = w < 768 ? w / 8 : 120;
+
+var opts = {
+  strings: ["HAPPY", "VALENTINE", "DAY"],
+  charSize: baseSize,
+  charSpacing: baseSize,
+  lineHeight: baseSize * 1.3,
 
     cx: w / 2,
     cy: h / 2,
@@ -424,6 +428,7 @@ function createBalloons(num) {
   }
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("resize", () => {
+  location.reload();
   createBalloons(30);
 });
