@@ -377,16 +377,22 @@ function anim() {
 }
 
 for (var i = 0; i < opts.strings.length; ++i) {
+
+  var lineWidth = opts.strings[i].length * opts.charSpacing;
+
   for (var j = 0; j < opts.strings[i].length; ++j) {
+
     letters.push(
       new Letter(
         opts.strings[i][j],
-        j * opts.charSpacing +
-          opts.charSpacing / 2 -
-          (opts.strings[i].length * opts.charSize) / 2,
-        i * opts.lineHeight +
-          opts.lineHeight / 2 -
-          (opts.strings.length * opts.lineHeight) / 2
+
+        // ✅ CENTER FIX
+        j * opts.charSpacing - lineWidth / 2 + opts.charSpacing / 2,
+
+        // vertical center tetap
+        i * opts.lineHeight -
+        (opts.strings.length * opts.lineHeight) / 2 +
+        opts.lineHeight / 2
       )
     );
   }
@@ -434,3 +440,4 @@ window.addEventListener("resize", () => {
   createBalloons(30);
 
 });
+
