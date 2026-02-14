@@ -4,14 +4,15 @@ var w = (c.width = window.innerWidth),
     hw = w / 2,
     hh = h / 2;
 
-// 🔥 RESPONSIVE SIZE
-var baseSize = w < 768 ? w / 8 : 120;
+// 🔥 RESPONSIVE SIZE (fix utama)
+var scaleFactor = Math.min(w, h) / 600; 
+var baseSize = 120 * scaleFactor;
 
 var opts = {
   strings: ["HAPPY", "VALENTINE", "DAY"],
   charSize: baseSize,
-  charSpacing: baseSize,
-  lineHeight: baseSize * 1.3,
+  charSpacing: baseSize * 0.9,
+  lineHeight: baseSize * 1.2,
 
     cx: w / 2,
     cy: h / 2,
@@ -431,4 +432,5 @@ function createBalloons(num) {
 window.addEventListener("resize", () => {
   location.reload();
   createBalloons(30);
+
 });
