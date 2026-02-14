@@ -5,14 +5,17 @@ var w = (c.width = window.innerWidth),
     hh = h / 2;
 
 // 🔥 RESPONSIVE SIZE (fix utama)
-var scaleFactor = Math.min(w, h) / 700; 
-var baseSize = 120 * scaleFactor;
+var longestWord = Math.max(
+    ["HAPPY", "VALENTINE", "DAY"].map(word => word.length)
+);
+
+// kasih margin biar ga mentok layar
+var baseSize = (w * 0.8) / longestWord;
 
 var opts = {
-  strings: ["HAPPY", "VALENTINE", "DAY"],
-  charSize: baseSize,
-  charSpacing: baseSize * 0.9,
-  lineHeight: baseSize * 1.2,
+    charSize: baseSize,
+    charSpacing: baseSize,
+    lineHeight: baseSize * 1.3,
 
     cx: w / 2,
     cy: h / 2,
@@ -440,5 +443,6 @@ window.addEventListener("resize", () => {
   createBalloons(30);
 
 });
+
 
 
