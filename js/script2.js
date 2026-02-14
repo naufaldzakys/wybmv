@@ -5,7 +5,7 @@ var w = (c.width = window.innerWidth),
     hh = h / 2;
 
 // 🔥 RESPONSIVE SIZE (fix utama)
-var scaleFactor = Math.min(w, h) / 600; 
+var scaleFactor = Math.min(w, h) / 700; 
 var baseSize = 120 * scaleFactor;
 
 var opts = {
@@ -440,4 +440,5 @@ window.addEventListener("resize", () => {
   createBalloons(30);
 
 });
+
 
